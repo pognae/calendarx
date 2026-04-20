@@ -1,0 +1,347 @@
+.cal-root {
+  background: color-mix(in oklab, var(--surface) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+.cal-banner {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, rgba(234, 179, 8, 0.22) 55%, transparent);
+  color: var(--text-h);
+  font-size: 13px;
+}
+
+.cal-loading {
+  padding: 18px 14px;
+  color: color-mix(in oklab, var(--text) 80%, transparent);
+  font-size: 14px;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 86%, transparent);
+}
+
+.cal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cal-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cal-title {
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+}
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cal-btn,
+.cal-icon-btn {
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  color: var(--text-h);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: transform 0.02s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cal-btn:hover,
+.cal-icon-btn:hover {
+  box-shadow: var(--shadow);
+}
+
+.cal-btn:active,
+.cal-icon-btn:active {
+  transform: translateY(1px);
+}
+
+.cal-icon-btn {
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-primary {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--accent) 55%, #0000),
+    color-mix(in oklab, #2563eb 45%, #0000)
+  );
+  color: var(--text-h);
+}
+
+.cal-danger {
+  border-color: rgba(220, 38, 38, 0.35);
+  background: rgba(220, 38, 38, 0.12);
+}
+
+.cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.cal-weekday {
+  padding: 10px 10px;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--text) 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 80%, transparent);
+}
+
+.cal-cell {
+  min-height: 120px;
+  padding: 10px 10px 12px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  outline: none;
+}
+
+.cal-cell:nth-child(7n) {
+  border-right: none;
+}
+
+.cal-cell:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent) inset;
+}
+
+.cal-cell.is-dim {
+  opacity: 0.6;
+}
+
+.cal-cell.is-today .cal-daynum {
+  background: color-mix(in oklab, var(--accent) 22%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 40%, var(--border));
+}
+
+.cal-cell-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cal-daynum {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--text-h);
+  font-weight: 650;
+  font-size: 13px;
+  background: color-mix(in oklab, var(--code-bg) 70%, transparent);
+}
+
+.cal-events {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+}
+
+.cal-event {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  background: color-mix(in oklab, var(--code-bg) 60%, transparent);
+  color: var(--text-h);
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cal-event:hover {
+  box-shadow: var(--shadow);
+}
+
+.cal-event-time {
+  font-size: 11px;
+  opacity: 0.8;
+  font-family: var(--mono);
+}
+
+.cal-event-title {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cal-more {
+  font-size: 11px;
+  color: color-mix(in oklab, var(--text) 78%, transparent);
+  padding: 0 2px;
+}
+
+.cal-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.cal-modal {
+  width: min(560px, 100%);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  box-shadow: rgba(0, 0, 0, 0.35) 0 30px 60px -25px;
+  overflow: clip;
+}
+
+.cal-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-modal-title {
+  font-weight: 750;
+  color: var(--text-h);
+  letter-spacing: -0.2px;
+}
+
+.cal-form {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cal-label {
+  font-size: 12px;
+  color: color-mix(in oklab, var(--text) 82%, transparent);
+}
+
+.cal-input,
+.cal-textarea {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  background: color-mix(in oklab, var(--bg) 90%, transparent);
+  color: var(--text-h);
+  outline: none;
+}
+
+.cal-input:focus,
+.cal-textarea:focus {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+}
+
+.cal-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cal-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.cal-color-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cal-color {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.0);
+  cursor: pointer;
+  outline: none;
+}
+
+.cal-color.is-selected {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 26%, transparent);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.cal-error {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(220, 38, 38, 0.28);
+  background: rgba(220, 38, 38, 0.12);
+  color: color-mix(in oklab, var(--text-h) 90%, #ef4444);
+  font-size: 13px;
+}
+
+.cal-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.cal-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .cal-cell {
+    min-height: 100px;
+    padding: 8px;
+  }
+  .cal-event {
+    grid-template-columns: 40px 1fr;
+  }
+}
+

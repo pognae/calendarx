@@ -1,0 +1,70 @@
+:root {
+  --text: #5e6272;
+  --text-h: #0b1020;
+  --bg: #ffffff;
+  --surface: #fbfbfd;
+  --border: rgba(17, 24, 39, 0.12);
+  --code-bg: rgba(17, 24, 39, 0.06);
+  --accent: #6d28d9;
+  --accent-bg: rgba(109, 40, 217, 0.12);
+  --accent-border: rgba(109, 40, 217, 0.45);
+  --shadow: rgba(0, 0, 0, 0.12) 0 10px 20px -8px;
+
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  font: 16px/150% var(--sans);
+  letter-spacing: 0.12px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: rgba(226, 232, 240, 0.82);
+    --text-h: #f8fafc;
+    --bg: #0b1020;
+    --surface: rgba(255, 255, 255, 0.04);
+    --border: rgba(226, 232, 240, 0.14);
+    --code-bg: rgba(226, 232, 240, 0.08);
+    --accent: #c4b5fd;
+    --accent-bg: rgba(196, 181, 253, 0.14);
+    --accent-border: rgba(196, 181, 253, 0.45);
+    --shadow: rgba(0, 0, 0, 0.38) 0 18px 34px -18px;
+  }
+}
+
+#root {
+  min-height: 100svh;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 700px at 30% -10%,
+      color-mix(in oklab, var(--accent) 20%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 90% 0%,
+      color-mix(in oklab, #22c55e 16%, transparent),
+      transparent 55%
+    ),
+    var(--bg);
+}
+
+a,
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
