@@ -112,7 +112,16 @@ export function CalendarApp() {
 
       <div className="cal-grid">
         {['일', '월', '화', '수', '목', '금', '토'].map((w) => (
-          <div key={w} className="cal-weekday">
+          <div
+            key={w}
+            className={[
+              'cal-weekday',
+              w === '일' ? 'is-week-sun' : '',
+              w === '토' ? 'is-week-sat' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+          >
             {w}
           </div>
         ))}
@@ -127,11 +136,20 @@ export function CalendarApp() {
           const key = toYmd(d)
           const { isToday: today, isOutOfMonth } = dayBadges(d, anchor)
           const list = eventsByDay.get(key) ?? []
+          const dow = d.getDay()
+          const weekSun = dow === 0
+          const weekSat = dow === 6
 
           return (
             <div
               key={key}
-              className={['cal-cell', today ? 'is-today' : '', isOutOfMonth ? 'is-dim' : '']
+              className={[
+                'cal-cell',
+                today ? 'is-today' : '',
+                isOutOfMonth ? 'is-dim' : '',
+                weekSun ? 'is-week-sun' : '',
+                weekSat ? 'is-week-sat' : '',
+              ]
                 .filter(Boolean)
                 .join(' ')}
               onClick={() => setDialog({ open: true, mode: 'create', day: d })}
@@ -181,6 +199,13 @@ export function CalendarApp() {
       </div>
 
       <EventDialog
+        key={
+          dialog.open
+            ? dialog.mode === 'edit'
+              ? `edit-${dialog.eventId}`
+              : `create-${toYmd(dialog.day)}`
+            : 'closed'
+        }
         open={dialog.open}
         mode={dialog.open ? dialog.mode : 'create'}
         day={dialog.open && dialog.mode === 'create' ? dialog.day : null}

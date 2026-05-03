@@ -69,7 +69,6 @@ app.delete('/api/events/:id', (req, res) => {
 
 const port = Number(process.env.PORT ?? 5176)
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`[api] listening on http://localhost:${port}`)
 })
 
@@ -83,7 +82,7 @@ type ApiEvent = {
   notes?: string
 }
 
-function fromRow(row: any): ApiEvent {
+function fromRow(row: Record<string, unknown>): ApiEvent {
   return {
     id: String(row.id),
     title: String(row.title),

@@ -6,17 +6,140 @@
   overflow: clip;
 }
 
+:root.dark-theme {
+  .cal-root {
+    background: #1e1e24;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .cal-banner {
+    background: color-mix(in oklab, #fbbf24 30%, transparent);
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .cal-loading {
+    color: #e4e4e7;
+  }
+
+  .cal-title {
+    color: #f8fafc !important;
+  }
+
+  .cal-btn,
+  .cal-icon-btn {
+    background: #2a2a30;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+  }
+
+  .cal-primary {
+    color: #ffffff !important;
+  }
+
+  .cal-weekday {
+    color: #f8fafc !important;
+  }
+
+  .cal-cell {
+    background: #1e1e24;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff !important;
+  }
+
+  .cal-cell.is-week-sat {
+    background: color-mix(in oklab, #3b82f6 15%, #1e1e24);
+  }
+
+  .cal-cell.is-week-sun {
+    background: color-mix(in oklab, #ef4444 15%, #1e1e24);
+  }
+
+  .cal-daynum {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .cal-cell.is-week-sat .cal-daynum {
+    color: #60a5fa !important;
+  }
+
+  .cal-cell.is-week-sun .cal-daynum {
+    color: #f87171 !important;
+  }
+
+  .cal-event {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .cal-event:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .cal-more {
+    color: #a1a1aa !important;
+  }
+
+  .cal-modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .cal-modal {
+    background: #1e1e24;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 30px 60px -25px;
+  }
+
+  .cal-modal-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .cal-modal-title {
+    color: #ffffff !important;
+  }
+
+  .cal-label {
+    color: #d4d4d8 !important;
+  }
+
+  .cal-input,
+  .cal-textarea {
+    background: #2a2a30;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .cal-input:focus,
+  .cal-textarea:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+    border-color: #6366f1;
+  }
+
+  .cal-error {
+    background: rgba(220, 38, 38, 0.2);
+    border-color: rgba(220, 38, 38, 0.4);
+    color: #fca5a5 !important;
+  }
+
+  .cal-modal-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
 .cal-banner {
   padding: 10px 14px;
   border-bottom: 1px solid var(--border);
   background: color-mix(in oklab, rgba(234, 179, 8, 0.22) 55%, transparent);
-  color: var(--text-h);
+  color: #000;
   font-size: 13px;
 }
 
 .cal-loading {
   padding: 18px 14px;
-  color: color-mix(in oklab, var(--text) 80%, transparent);
+  color: #000;
+  opacity: 0.7;
   font-size: 14px;
 }
 
@@ -44,7 +167,7 @@
 
 .cal-title {
   font-weight: 700;
-  color: var(--text-h);
+  color: #000;
   letter-spacing: -0.2px;
   white-space: nowrap;
 }
@@ -59,7 +182,7 @@
 .cal-icon-btn {
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--bg) 88%, transparent);
-  color: var(--text-h);
+  color: #000;
   border-radius: 12px;
   padding: 8px 10px;
   cursor: pointer;
@@ -90,7 +213,7 @@
     color-mix(in oklab, var(--accent) 55%, #0000),
     color-mix(in oklab, #2563eb 45%, #0000)
   );
-  color: var(--text-h);
+  color: #000;
 }
 
 .cal-danger {
@@ -109,12 +232,14 @@
   grid-template-columns: repeat(7, 1fr);
 }
 
+/* 요일 열 배경은 :root.light-theme / 다크 블록에서 .is-week-sun · .is-week-sat 로 처리 */
+
 .cal-weekday {
   padding: 10px 10px;
   font-size: 12px;
   letter-spacing: 0.12px;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--text) 75%, transparent);
+  color: #000;
   border-bottom: 1px solid var(--border);
   background: color-mix(in oklab, var(--bg) 80%, transparent);
 }
@@ -130,9 +255,10 @@
   flex-direction: column;
   gap: 8px;
   outline: none;
+  color: #000;
 }
 
-.cal-cell:nth-child(7n) {
+.cal-cell.is-week-sat {
   border-right: none;
 }
 
@@ -161,10 +287,34 @@
   display: grid;
   place-items: center;
   border-radius: 10px;
-  color: var(--text-h);
+  color: #000;
   font-weight: 650;
   font-size: 13px;
   background: color-mix(in oklab, var(--code-bg) 70%, transparent);
+}
+
+:root.light-theme .cal-weekday.is-week-sun {
+  color: #dc2626;
+}
+
+:root.light-theme .cal-weekday.is-week-sat {
+  color: #2563eb;
+}
+
+:root.light-theme .cal-cell.is-week-sun {
+  background: color-mix(in oklab, rgba(239, 68, 68, 0.12), var(--bg) 88%, transparent);
+}
+
+:root.light-theme .cal-cell.is-week-sat {
+  background: color-mix(in oklab, rgba(59, 130, 246, 0.1), var(--bg) 88%, transparent);
+}
+
+:root.light-theme .cal-cell.is-week-sun .cal-daynum {
+  color: #dc2626;
+}
+
+:root.light-theme .cal-cell.is-week-sat .cal-daynum {
+  color: #2563eb;
 }
 
 .cal-events {
@@ -183,7 +333,7 @@
   border-radius: 10px;
   border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
   background: color-mix(in oklab, var(--code-bg) 60%, transparent);
-  color: var(--text-h);
+  color: #000;
   text-align: left;
   cursor: pointer;
   overflow: hidden;
@@ -208,7 +358,7 @@
 
 .cal-more {
   font-size: 11px;
-  color: color-mix(in oklab, var(--text) 78%, transparent);
+  color: #000;
   padding: 0 2px;
 }
 
@@ -240,7 +390,7 @@
 
 .cal-modal-title {
   font-weight: 750;
-  color: var(--text-h);
+  color: #000;
   letter-spacing: -0.2px;
 }
 
@@ -259,7 +409,7 @@
 
 .cal-label {
   font-size: 12px;
-  color: color-mix(in oklab, var(--text) 82%, transparent);
+  color: #000;
 }
 
 .cal-input,
@@ -268,7 +418,7 @@
   border: 1px solid var(--border);
   padding: 10px 12px;
   background: color-mix(in oklab, var(--bg) 90%, transparent);
-  color: var(--text-h);
+  color: #000;
   outline: none;
 }
 
@@ -317,7 +467,7 @@
   border-radius: 12px;
   border: 1px solid rgba(220, 38, 38, 0.28);
   background: rgba(220, 38, 38, 0.12);
-  color: color-mix(in oklab, var(--text-h) 90%, #ef4444);
+  color: #ef4444;
   font-size: 13px;
 }
 

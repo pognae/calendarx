@@ -1,0 +1,10 @@
+// example: project_context.json (매번 업데이트)
+{
+  "tech_stack": ["React", "TypeScript", "PostgreSQL", "Docker"],
+  "current_task": "User Authentication System Refactoring",
+  "key_files": [
+    "src/auth/login.tsx", 
+    "src/database/users.ts"
+  ],
+  "recent_changes": "JWT 만료 시간을 24시간으로 증가시켰음."
+}

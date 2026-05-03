@@ -1,4 +1,4 @@
-:root {
+:root.light-theme {
   --text: #5e6272;
   --text-h: #0b1020;
   --bg: #ffffff;
@@ -24,22 +24,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: rgba(226, 232, 240, 0.82);
-    --text-h: #f8fafc;
-    --bg: #0b1020;
-    --surface: rgba(255, 255, 255, 0.04);
-    --border: rgba(226, 232, 240, 0.14);
-    --code-bg: rgba(226, 232, 240, 0.08);
-    --accent: #c4b5fd;
-    --accent-bg: rgba(196, 181, 253, 0.14);
-    --accent-border: rgba(196, 181, 253, 0.45);
-    --shadow: rgba(0, 0, 0, 0.38) 0 18px 34px -18px;
-  }
+.dark-theme {
+  --text: rgba(226, 232, 240, 0.82);
+  --text-h: #f8fafc;
+  --bg: #0b1020;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: rgba(226, 232, 240, 0.14);
+  --code-bg: rgba(226, 232, 240, 0.08);
+  --accent: #c4b5fd;
+  --accent-bg: rgba(196, 181, 253, 0.14);
+  --accent-border: rgba(196, 181, 253, 0.45);
+  --shadow: rgba(0, 0, 0, 0.38) 0 18px 34px -18px;
 }
 
-#root {
+.light-theme body,
+.dark-theme body {
   min-height: 100svh;
 }
 

@@ -58,6 +58,47 @@
   gap: 10px;
 }
 
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--code-bg) 70%, transparent);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent-bg) 60%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.theme-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.sun-icon {
+  transition: transform 0.3s ease;
+}
+
+.moon-icon {
+  filter: grayscale(0.5);
+  transition: filter 0.3s ease;
+}
+
+/* When switching to dark mode, reverse icon styling */
+.dark-theme .sun-icon,
+.light-theme .moon-icon {
+  filter: none;
+  transform: scale(1);
+}
+
 .link {
   color: var(--text-h);
   text-decoration: none;

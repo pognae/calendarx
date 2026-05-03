@@ -1,5 +1,6 @@
 import './App.css'
 import { CalendarApp } from './calendar/CalendarApp'
+import { ThemeToggle } from './components/ThemeToggle'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           </div>
         </div>
         <div className="topbar-actions">
+          <ThemeToggle />
           <a
             className="link"
             href="https://github.com/"

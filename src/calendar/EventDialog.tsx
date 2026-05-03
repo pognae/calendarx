@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { X, Trash2 } from 'lucide-react'
 import { addMinutes, format, isAfter, parseISO, set } from 'date-fns'
 import type { CalendarEvent } from './types'
@@ -30,18 +30,6 @@ export function EventDialog(props: {
   const [color, setColor] = useState<string>(initial.color)
   const [notes, setNotes] = useState(initial.notes)
   const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (!open) return
-    setTitle(initial.title)
-    setDate(initial.date)
-    setAllDay(initial.allDay)
-    setStartTime(initial.startTime)
-    setEndTime(initial.endTime)
-    setColor(initial.color)
-    setNotes(initial.notes)
-    setError(null)
-  }, [open, initial])
 
   if (!open) return null
 
